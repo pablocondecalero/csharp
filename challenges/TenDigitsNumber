@@ -1,6 +1,6 @@
 //Pablo Conde - August 2020
 /*Find the smallest number with all the digits (0,1,2...9) 
- * which is divisible by all these digits except 0*/
+ * which is divisible by all these digits except 0 */
 
 using System;
 
