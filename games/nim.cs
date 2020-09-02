@@ -44,12 +44,11 @@ class Nim
        
                 
             for (int i = 0; i < 3; i++)
-            pieces.Add(random.Next(1, 7));
+                pieces.Add(random.Next(1, 7));
             pieces.Sort();
             
             DrawPieces(pieces);
             
-
             bool enoughPieces = true;
             int turn = 1;
             int total = 0;
@@ -82,19 +81,50 @@ class Nim
                     if(IsNumber(couple[0]) &&
                         IsNumber(couple[0]))
                     {
-                        int rowNumber = Convert.ToInt32(couple[0]) - 1;
-                        int piecesNumber = Convert.ToInt32(couple[1]);
-                        pieces[rowNumber] -= piecesNumber;
+                        if(Convert.ToInt32(couple[0]) > 0 &&
+                           Convert.ToInt32(couple[0]) <= pieces.Count)
+                        {   
+                            if(Convert.ToInt32(couple[1]) > 0 &&
+                                Convert.ToInt32(couple[1]) <= 
+                                pieces[Convert.ToInt32(couple[0]) - 1])
+                            { 
+                                int rowNumber = Convert.ToInt32(couple[0]) - 1;
+                                int piecesNumber = Convert.ToInt32(couple[1]);
+                                pieces[rowNumber] -= piecesNumber;
 
-                        DrawPieces(pieces);
-                        turn++;
+                                DrawPieces(pieces);
+                                turn++;
 
-                        for (int i = 0; i < pieces.Count; i++)
-                            total += pieces[i];
+                                for (int i = 0; i < pieces.Count; i++)
+                                    total += pieces[i];
+                                    
+                                if (total < 2)
+                                    enoughPieces = false;
+                                correct = true;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine();
+
+                                Console.WriteLine("Please, choose " 
+                                + " a valid number of pieces"); 
+                                Console.WriteLine();
+                                Console.ForegroundColor = ConsoleColor.White;
+                            }
+
                             
-                        if (total < 2)
-                            enoughPieces = false;
-                        correct = true;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine();
+
+                            Console.WriteLine("Please, choose a valid row"); 
+                            Console.WriteLine();
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+
                     }
                     else
                     {
@@ -168,7 +198,7 @@ class Nim
                 
                 break;
                 
-            case 2: //row - quantity - row quantity
+            case 2:
       
                 List<int> values = new List<int>();
                 for (int i = 0; i < pieces.Count; i++)
@@ -180,7 +210,6 @@ class Nim
                     }
                 }
                 
-           
                 if(values[1] > values[3])
                 {
                     rowNum = values[0] + 1;
