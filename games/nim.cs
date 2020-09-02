@@ -41,8 +41,7 @@ class Nim
                 player1 = "Computer";
                 player2 = name;
             }
-       
-                
+                    
             for (int i = 0; i < 3; i++)
                 pieces.Add(random.Next(1, 7));
             pieces.Sort();
@@ -111,9 +110,7 @@ class Nim
                                 + " a valid number of pieces"); 
                                 Console.WriteLine();
                                 Console.ForegroundColor = ConsoleColor.White;
-                            }
-
-                            
+                            }     
                         }
                         else
                         {
@@ -124,7 +121,6 @@ class Nim
                             Console.WriteLine();
                             Console.ForegroundColor = ConsoleColor.White;
                         }
-
                     }
                     else
                     {
@@ -152,8 +148,7 @@ class Nim
         }
         while(anotherGame);
         
-        Console.WriteLine("See you soon!");
-        
+        Console.WriteLine("See you soon!");      
     }
     
     static void DrawPieces (List<int> pieces)
@@ -194,8 +189,7 @@ class Nim
                         rowNum = i + 1;
                 }
                 
-                piecesNum = pieces[rowNum - 1] - 1;
-                
+                piecesNum = pieces[rowNum - 1] - 1; 
                 break;
                 
             case 2:
@@ -257,8 +251,7 @@ class Nim
                     {
                         rowNum = 2 + 1;
                         piecesNum = pieces[2];
-                    }
-                  
+                    }      
                 }
                 
                 else if (pieces[0] == pieces[2])
@@ -272,8 +265,7 @@ class Nim
                     {
                         rowNum = 1 + 1;
                         piecesNum = pieces[1];
-                    }
-                    
+                    }         
                 }
                     
                 else if(pieces[1] == pieces[2])
@@ -352,8 +344,7 @@ class Nim
           
         for (int i = 0; i < auxList.Count; i++)
             totalZero += auxList[i];
- 
-        
+         
         if (totalZero > 0)
         {
             for (int i = 0; i < auxList.Count; i++)
