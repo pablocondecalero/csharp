@@ -16,7 +16,6 @@ class TenDigitsNumber
          * results a number of 10*/
         int multiplyNum = (int) Math.Floor(Math.Pow(10, 9) / prod) + 1;
         
-       
        long result = 1;
        string resultChain = "";
        bool found = false;
