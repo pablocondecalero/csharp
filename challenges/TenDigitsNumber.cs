@@ -13,7 +13,7 @@ class TenDigitsNumber
         int prod = 5 * 7 * 8 * 9; 
 
         /*Search of first number which multiplied by prod
-         * results a number of 10*/
+         * results a number of 10 digits*/
         int multiplyNum = (int) Math.Floor(Math.Pow(10, 9) / prod) + 1;
         
        long result = 1;
